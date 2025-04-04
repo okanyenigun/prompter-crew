@@ -1,0 +1,42 @@
+analyze_prompt:
+  description: >
+    Inspect the current prompt: {prompt} and detect missing elements according to prompt engineering principles.
+    Identify which of the five principles (direction, format, examples, quality metrics, task decomposition)
+    are missing or could be improved. Create a detailed analysis report.
+  expected_output: >
+    A structured analysis of the original prompt highlighting missing elements and opportunities for improvement against each of the five prompt engineering principles.
+  agent: first_level_writer
+  async_execution: true
+
+apply_direction:
+  description: >
+    Improve the prompt: {prompt} by adding clear directions about the desired style, tone, and approach. Be specific about what the LLM should aim for in its responses.
+  expected_output: >
+    An enhanced prompt with clear direction elements added or improved.
+  agent: first_level_writer
+  async_execution: true
+
+specify_format:
+  description: >
+    For prompt: {prompt}, Define the structure and rules that the response should follow, including any formatting requirements, sections, or constraints.
+  expected_output: >
+    A prompt with explicit format specifications integrated into the instructions.
+  agent: first_level_writer
+  async_execution: true
+
+provide_examples:
+  description: >
+    Add diverse and representative examples that illustrate the expected output for the prompt: {prompt}.
+    Examples should demonstrate proper format, style, and content quality.
+  expected_output: >
+    A prompt enriched with relevant examples that guide the LLM toward better responses.
+  agent: first_level_writer
+  async_execution: true
+
+finalize_prompt:
+  description: >
+    For the prompt: {prompt};Integrate all improvements (direction, format, examples) into a cohesive final prompt. Ensure all additions work together harmoniously and the prompt reads naturally.
+  expected_output: >
+    A complete, enhanced prompt that incorporates all necessary improvements while maintaining clarity and coherence.
+  agent: first_level_writer
+  context: [analyze_prompt, apply_direction, specify_format, provide_examples]
