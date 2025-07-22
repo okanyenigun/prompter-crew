@@ -1,42 +1,143 @@
-analyze_prompt:
+apply_five_principles:
   description: >
-    Inspect the current prompt: {prompt} and detect missing elements according to prompt engineering principles.
-    Identify which of the five principles (direction, format, examples, quality metrics, task decomposition)
-    are missing or could be improved. Create a detailed analysis report.
-  expected_output: >
-    A structured analysis of the original prompt highlighting missing elements and opportunities for improvement against each of the five prompt engineering principles.
-  agent: first_level_writer
-  async_execution: true
+    Take the provided basic prompt and apply the 5 fundamental prompt engineering principles to improve it:
 
-apply_direction:
-  description: >
-    Improve the prompt: {prompt} by adding clear directions about the desired style, tone, and approach. Be specific about what the LLM should aim for in its responses.
-  expected_output: >
-    An enhanced prompt with clear direction elements added or improved.
-  agent: first_level_writer
-  async_execution: true
+    1. GIVE DIRECTION: Add clear, specific instructions about what you want the AI to do
+    2. SPECIFY FORMAT: Define the exact output format, structure, and style requirements
+    3. PROVIDE EXAMPLES: Include relevant examples to illustrate the desired output
+    4. EVALUATE QUALITY: Add criteria for what makes a good response
+    5. DIVIDE LABOR: Break complex tasks into smaller, manageable subtasks if needed
 
-specify_format:
-  description: >
-    For prompt: {prompt}, Define the structure and rules that the response should follow, including any formatting requirements, sections, or constraints.
-  expected_output: >
-    A prompt with explicit format specifications integrated into the instructions.
-  agent: first_level_writer
-  async_execution: true
+    Original prompt to improve: {candidate_prompt}
 
-provide_examples:
-  description: >
-    Add diverse and representative examples that illustrate the expected output for the prompt: {prompt}.
-    Examples should demonstrate proper format, style, and content quality.
+    Analyze the original prompt, identify areas for improvement, and apply each principle systematically.
   expected_output: >
-    A prompt enriched with relevant examples that guide the LLM toward better responses.
-  agent: first_level_writer
-  async_execution: true
+    Only the final improved prompt that incorporates all five principles.
+    Return the prompt as clean, ready-to-use text without any additional commentary or explanation.
+  async_execution: false
+  agent: prompt_copywriter
 
-finalize_prompt:
+rag_alignment:
   description: >
-    For the prompt: {prompt};Integrate all improvements (direction, format, examples) into a cohesive final prompt. Ensure all additions work together harmoniously and the prompt reads naturally.
+    onvert the provided candidate prompt to be optimized for RAG (Retrieval-Augmented Generation) systems. 
+    RAG systems work by first retrieving relevant documents/context and then generating responses based on that context.
+
+    Transform the prompt to:
+    1. Include instructions for using retrieved context effectively
+    2. Add context-grounding directives to prevent hallucination
+    3. Structure the prompt to handle variable amounts of retrieved information
+    4. Include citation and source attribution requirements
+    5. Add instructions for handling cases where context is insufficient or irrelevant
+    6. Optimize for factual accuracy and source-based reasoning
+
+    Original prompt to convert: {candidate_prompt}
+
+    Analyze how this prompt would work in a RAG pipeline and restructure it accordingly.
   expected_output: >
-    A complete, enhanced prompt that incorporates all necessary improvements while maintaining clarity and coherence.
-  agent: first_level_writer
-  context: [analyze_prompt, apply_direction, specify_format, provide_examples]
+    Only the final RAG-optimized prompt that includes context handling, citation requirements, and grounding instructions.
+    Return the prompt as clean, ready-to-use text without any explanations, analysis, or formatting.
+  async_execution: false
+  agent: prompt_copywriter
+
+langchain_structured_output:
+  description: >
+    Convert the provided candidate prompt to be optimized for LangChain prompt templates and chains with structured outputs.
+    LangChain templates use specific variable formatting and require clear output structure definitions.
+
+    Transform the prompt to:
+    1. Clearly explain the intention and purpose of the task
+    2. Define precise output structure with field descriptions
+    3. Use proper LangChain variable formatting for template variables)
+    4. Handle escaping correctly to avoid conflicts with template syntax
+    5. Include output format specifications (JSON, XML, etc.)
+    6. Add validation instructions for structured data
+    7. Ensure compatibility with LangChain's output parsers
+    8. Include error handling for malformed outputs
+
+    Original prompt to convert: {candidate_prompt}
+
+    Make sure to preserve any existing template variables while adding new structured output requirements.
+    Be careful with escaping curly braces and other special characters that might interfere with LangChain templating.
+  expected_output: >
+    Only the final LangChain-optimized prompt template with clear intention, structured output definitions, and proper variable formatting.
+    Return the prompt as clean, ready-to-use text without any explanations, analysis, or formatting.
+  async_execution: false
+  agent: prompt_copywriter
+
+hub_keyword_analysis:
+  description: >
+    Analyze the improved prompt from the previous task and determine prompt engineering-specific keywords for finding relevant reference prompts on the LangChain Hub.
+
+    IMPORTANT: Focus on PROMPT ENGINEERING terminology, not general domain keywords. Think about how prompt engineers categorize and tag prompts in repositories.
+
+    Your task is to identify prompt engineering concepts such as:
+    1. **Prompt Techniques**: few-shot, zero-shot, chain-of-thought, step-by-step, reasoning, classification, generation, extraction, summarization, analysis, creative, instruction-following
+    2. **Output Formats**: structured, json, xml, list, bullet-points, numbered, format-specified
+    3. **Prompt Patterns**: template, examples, persona, role-play, system-prompt, user-prompt, context-aware
+    4. **AI Task Types**: text-generation, content-creation, brainstorming, naming, creative-writing, copywriting, marketing
+    5. **Prompt Engineering Methods**: iterative, refined, optimized, enhanced, systematic
+
+    For the improved prompt from the previous task, identify:
+    - What prompt engineering technique is being used? (e.g., instruction-following, creative-generation)
+    - What type of AI task is this? (e.g., creative-writing, naming, content-creation)
+    - What prompt patterns are applied? (e.g., structured-output, example-driven, context-specific)
+    - What format or style is specified? (e.g., creative, professional, casual)
+
+    Generate 3-5 keywords that prompt engineers would use to categorize this type of prompt in a repository.
+    Think narrow and specific to prompt engineering, not broad domain terms.
+
+    Examples of good prompt engineering keywords: "few-shot", "creative-generation", "structured-prompt", "instruction-following", "content-creation", "naming-task", "brainstorming", "systematic-prompt"
+    Examples of bad general keywords: "business", "technology", "apps", "productivity", "marketing"
+
+    Focus on generating search terms that would find prompts with similar PROMPT ENGINEERING structures and techniques.
+  expected_output: >
+    A list of 3-5 prompt engineering-specific keywords/phrases optimized for LangChain Hub search.
+    Each keyword should be focused on prompt engineering concepts, techniques, or patterns (1-3 words).
+    Avoid general domain keywords - focus on how prompt engineers would categorize this prompt.
+    Format: keyword1, keyword2, keyword3, keyword4, keyword5
+  async_execution: false
+  agent: hub_researcher
+
+hub_prompt_collection:
+  description: >
+    Use the Hub Prompt Collector tool to search for and retrieve reference prompts from the LangChain Hub based on the keywords identified in the previous keyword analysis task.
+
+    Your task is to:
+    1. Take the search keywords from the previous task's output
+    2. Use the collect_tools_from_hub tool to search for each keyword
+    3. Gather all retrieved reference prompts
+    4. Remove any duplicates or very similar prompts
+    5. Organize the collected prompts for analysis
+
+    Be thorough in your collection - try each keyword and gather as many relevant prompts as possible.
+    The goal is to build a comprehensive reference library for comparison and improvement insights.
+  expected_output: >
+    A organized collection of unique reference prompts retrieved from the LangChain Hub.
+    Format each prompt clearly with a separator between different prompts.
+    Remove duplicates and very similar prompts to keep only diverse, high-quality examples.
+  async_execution: false
+  agent: hub_researcher
+
+hub_improvement_analysis:
+  description: >
+    Analyze the collected reference prompts from the previous task and compare them with the improved prompt from the initial prompt engineering stage to identify additional improvement opportunities.
+
+    Your analysis should:
+    1. Compare the improved prompt structure (from the first stage) with the reference prompts collected in the previous task
+    2. Identify techniques used in reference prompts that could further enhance the already-improved prompt
+    3. Look for patterns in successful prompts (format, instructions, examples, etc.) that weren't captured in the initial improvement
+    4. Find gaps or additional enhancement opportunities in the improved prompt
+    5. Discover best practices demonstrated in the reference collection that could provide incremental improvements
+    6. Identify specific elements that could be adapted or incorporated for further optimization
+
+    Use both the original candidate prompt and the improved prompt from the first stage for context and comparison.
+
+    Original candidate prompt: {candidate_prompt}
+
+    Focus on actionable insights that would provide additional improvements beyond what was already achieved in the first stage, using the reference prompts from the previous collection task.
+  expected_output: >
+    Only the final optimized prompt that incorporates both the initial improvements and hub-derived enhancements.
+    Return the prompt as clean, ready-to-use text without any explanations, analysis, or formatting.
+    Do not include any reasoning, assessment, or recommendations - just the final improved prompt text.
+  async_execution: false
+  agent: hub_researcher

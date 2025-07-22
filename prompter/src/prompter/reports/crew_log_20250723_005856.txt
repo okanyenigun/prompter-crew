@@ -1,0 +1,92 @@
+2025-07-23 00:58:56: task_name="None", task="Take the provided basic prompt and apply the 5 fundamental prompt engineering principles to improve it:
+1. GIVE DIRECTION: Add clear, specific instructions about what you want the AI to do 2. SPECIFY FORMAT: Define the exact output format, structure, and style requirements 3. PROVIDE EXAMPLES: Include relevant examples to illustrate the desired output 4. EVALUATE QUALITY: Add criteria for what makes a good response 5. DIVIDE LABOR: Break complex tasks into smaller, manageable subtasks if needed
+Original prompt to improve: write a joke
+Analyze the original prompt, identify areas for improvement, and apply each principle systematically.
+", agent="Adaptive Prompt Engineering Agent
+", status="started"
+2025-07-23 00:59:00: task_name="None", task="Take the provided basic prompt and apply the 5 fundamental prompt engineering principles to improve it:
+1. GIVE DIRECTION: Add clear, specific instructions about what you want the AI to do 2. SPECIFY FORMAT: Define the exact output format, structure, and style requirements 3. PROVIDE EXAMPLES: Include relevant examples to illustrate the desired output 4. EVALUATE QUALITY: Add criteria for what makes a good response 5. DIVIDE LABOR: Break complex tasks into smaller, manageable subtasks if needed
+Original prompt to improve: write a joke
+Analyze the original prompt, identify areas for improvement, and apply each principle systematically.
+", agent="Adaptive Prompt Engineering Agent
+", status="completed", output="Please write a joke that is suitable for a family-friendly audience. The joke should be structured with a setup and punchline format, ideally a one-liner. An example of a good joke is: "Why did the scarecrow win an award? Because he was outstanding in his field!" A good response should make people laugh while remaining appropriate for all ages. If the joke is too complex, feel free to break it down into a setup and punchline to enhance clarity."
+2025-07-23 00:59:00: task_name="None", task="Analyze the improved prompt from the previous task and determine prompt engineering-specific keywords for finding relevant reference prompts on the LangChain Hub.
+IMPORTANT: Focus on PROMPT ENGINEERING terminology, not general domain keywords. Think about how prompt engineers categorize and tag prompts in repositories.
+Your task is to identify prompt engineering concepts such as: 1. **Prompt Techniques**: few-shot, zero-shot, chain-of-thought, step-by-step, reasoning, classification, generation, extraction, summarization, analysis, creative, instruction-following 2. **Output Formats**: structured, json, xml, list, bullet-points, numbered, format-specified 3. **Prompt Patterns**: template, examples, persona, role-play, system-prompt, user-prompt, context-aware 4. **AI Task Types**: text-generation, content-creation, brainstorming, naming, creative-writing, copywriting, marketing 5. **Prompt Engineering Methods**: iterative, refined, optimized, enhanced, systematic
+For the improved prompt from the previous task, identify: - What prompt engineering technique is being used? (e.g., instruction-following, creative-generation) - What type of AI task is this? (e.g., creative-writing, naming, content-creation) - What prompt patterns are applied? (e.g., structured-output, example-driven, context-specific) - What format or style is specified? (e.g., creative, professional, casual)
+Generate 3-5 keywords that prompt engineers would use to categorize this type of prompt in a repository. Think narrow and specific to prompt engineering, not broad domain terms.
+Examples of good prompt engineering keywords: "few-shot", "creative-generation", "structured-prompt", "instruction-following", "content-creation", "naming-task", "brainstorming", "systematic-prompt" Examples of bad general keywords: "business", "technology", "apps", "productivity", "marketing"
+Focus on generating search terms that would find prompts with similar PROMPT ENGINEERING structures and techniques.
+", agent="LangChain Hub Prompt Researcher
+", status="started"
+2025-07-23 00:59:27: task_name="None", task="Analyze the improved prompt from the previous task and determine prompt engineering-specific keywords for finding relevant reference prompts on the LangChain Hub.
+IMPORTANT: Focus on PROMPT ENGINEERING terminology, not general domain keywords. Think about how prompt engineers categorize and tag prompts in repositories.
+Your task is to identify prompt engineering concepts such as: 1. **Prompt Techniques**: few-shot, zero-shot, chain-of-thought, step-by-step, reasoning, classification, generation, extraction, summarization, analysis, creative, instruction-following 2. **Output Formats**: structured, json, xml, list, bullet-points, numbered, format-specified 3. **Prompt Patterns**: template, examples, persona, role-play, system-prompt, user-prompt, context-aware 4. **AI Task Types**: text-generation, content-creation, brainstorming, naming, creative-writing, copywriting, marketing 5. **Prompt Engineering Methods**: iterative, refined, optimized, enhanced, systematic
+For the improved prompt from the previous task, identify: - What prompt engineering technique is being used? (e.g., instruction-following, creative-generation) - What type of AI task is this? (e.g., creative-writing, naming, content-creation) - What prompt patterns are applied? (e.g., structured-output, example-driven, context-specific) - What format or style is specified? (e.g., creative, professional, casual)
+Generate 3-5 keywords that prompt engineers would use to categorize this type of prompt in a repository. Think narrow and specific to prompt engineering, not broad domain terms.
+Examples of good prompt engineering keywords: "few-shot", "creative-generation", "structured-prompt", "instruction-following", "content-creation", "naming-task", "brainstorming", "systematic-prompt" Examples of bad general keywords: "business", "technology", "apps", "productivity", "marketing"
+Focus on generating search terms that would find prompts with similar PROMPT ENGINEERING structures and techniques.
+", agent="LangChain Hub Prompt Researcher
+", status="completed", output="structured-prompt, instruction-following, creative-generation, setup-and-punchline, family-friendly humor"
+2025-07-23 00:59:27: task_name="None", task="Use the Hub Prompt Collector tool to search for and retrieve reference prompts from the LangChain Hub based on the keywords identified in the previous keyword analysis task.
+Your task is to: 1. Take the search keywords from the previous task's output 2. Use the collect_tools_from_hub tool to search for each keyword 3. Gather all retrieved reference prompts 4. Remove any duplicates or very similar prompts 5. Organize the collected prompts for analysis
+Be thorough in your collection - try each keyword and gather as many relevant prompts as possible. The goal is to build a comprehensive reference library for comparison and improvement insights.
+", agent="LangChain Hub Prompt Researcher
+", status="started"
+2025-07-23 01:00:52: task_name="None", task="Use the Hub Prompt Collector tool to search for and retrieve reference prompts from the LangChain Hub based on the keywords identified in the previous keyword analysis task.
+Your task is to: 1. Take the search keywords from the previous task's output 2. Use the collect_tools_from_hub tool to search for each keyword 3. Gather all retrieved reference prompts 4. Remove any duplicates or very similar prompts 5. Organize the collected prompts for analysis
+Be thorough in your collection - try each keyword and gather as many relevant prompts as possible. The goal is to build a comprehensive reference library for comparison and improvement insights.
+", agent="LangChain Hub Prompt Researcher
+", status="completed", output="```
+### Structured Prompts
+1. You are an AI tasked with evaluating groups of related news articles, called clusters, for inclusion in an AI-focused newsletter. Each cluster represents a distinct news event, development, or trend in the field of AI, summarized with a title and a brief description capturing the essence of the grouped articles. Your goal is to determine whether a given cluster should be included based on specific criteria.
+   - Here is the information for the cluster you need to evaluate:
+   - <cluster_title>
+   - {cluster_title}
+   - </cluster_title>
+   - <cluster_summary>
+   - {cluster_summary}
+   - </cluster_summary>
+   - Evaluate this cluster based on the following criteria:
+     1. Relevance: Is the event directly related to AI technology, its applications, usage or implications?
+     2. Novelty: Does the event represent a new development, breakthrough, or significant change in the AI landscape? Does it bring something new to the table, not just reiterate known information?
+     3. Impact: Does the event have potential consequences for the AI industry, businesses, or society at large? Does it matter beyond just the immediate context?
+     4. Specificity: Is it about a concrete happening, not just a general trend or statistic? Is the event well-defined and clearly articulated?
+   - Analyze the cluster carefully, considering how well it meets each of these criteria. Think through your reasoning for each criterion.
+   - After your analysis, provide a justification for your decision. Explain how the cluster meets or fails to meet each criterion, giving specific examples from the cluster title and summary to support your reasoning.
+   - Finally, based on your analysis and justification, make a decision on whether to include or exclude this cluster from the newsletter.
+   - If your decision is to exclude the cluster, use the most appropriate exclusion reason such as:
+     - "not-relevant", "not-specific", or "other", with an appropriate explanation.
+
+2. As a sophisticated NLP system, I am adept at refining user prompts through an in-depth mastery of English linguistics, guided by the 9 rules and resultant linguistic principles of the 'Schillace Laws'.
+
+### Instruction-Following
+1. Introduction: This prompt is designed to evaluate the necessity of a follow-up to a recent customer chat.
+   - Context: [Include a summary of the customer issue, the tone of the conversation, any specific requests made by the customer, and the resolution provided if any.]
+   - Considerations: Assess customer satisfaction, issue resolution completeness, potential for further questions or clarification, and the customer's expressed need for follow-up.
+   - Attached/Referenced: {Chat history or conversation}
+   - Evaluation Criteria: Determine the need for a follow-up based on unresolved issues, customer dissatisfaction, unclear resolution, or open-ended questions in the chat.
+   - Required Action: Provide a clear recommendation on whether a follow-up is necessary, and if so, suggest the key points to address.
+   - Only respond with a "Y" if needs to a follow-up with the customer or with an "N" if is not necessary.
+
+2. Assistant is a Job Counselor named Compass. As a job counselor, Compass is equipped to provide comprehensive assistance to job seekers who may feel uncertain about their future career paths. Compass's primary goal is to engage in empathetic and supportive conversations, enabling individuals to express their concerns and aspirations openly.
+
+### Creative Generation
+1. Envisioned as a virtuoso in linguistic engineering and a Prompt Writer for Large Language Models, I embody the essence of linguistic mastery. My goal is to assist users in creating narratives enriched with detail and emotional depth based on a given prompt.
+
+2. You are designated as a helpful assistant. Your primary job is to respond to the given task. Utilize the provided observations from external sources to inform your responses when necessary.
+```"
+2025-07-23 01:00:52: task_name="None", task="Analyze the collected reference prompts from the previous task and compare them with the improved prompt from the initial prompt engineering stage to identify additional improvement opportunities.
+Your analysis should: 1. Compare the improved prompt structure (from the first stage) with the reference prompts collected in the previous task 2. Identify techniques used in reference prompts that could further enhance the already-improved prompt 3. Look for patterns in successful prompts (format, instructions, examples, etc.) that weren't captured in the initial improvement 4. Find gaps or additional enhancement opportunities in the improved prompt 5. Discover best practices demonstrated in the reference collection that could provide incremental improvements 6. Identify specific elements that could be adapted or incorporated for further optimization
+Use both the original candidate prompt and the improved prompt from the first stage for context and comparison.
+Original candidate prompt: write a joke
+Focus on actionable insights that would provide additional improvements beyond what was already achieved in the first stage, using the reference prompts from the previous collection task.
+", agent="LangChain Hub Prompt Researcher
+", status="started"
+2025-07-23 01:01:10: task_name="None", task="Analyze the collected reference prompts from the previous task and compare them with the improved prompt from the initial prompt engineering stage to identify additional improvement opportunities.
+Your analysis should: 1. Compare the improved prompt structure (from the first stage) with the reference prompts collected in the previous task 2. Identify techniques used in reference prompts that could further enhance the already-improved prompt 3. Look for patterns in successful prompts (format, instructions, examples, etc.) that weren't captured in the initial improvement 4. Find gaps or additional enhancement opportunities in the improved prompt 5. Discover best practices demonstrated in the reference collection that could provide incremental improvements 6. Identify specific elements that could be adapted or incorporated for further optimization
+Use both the original candidate prompt and the improved prompt from the first stage for context and comparison.
+Original candidate prompt: write a joke
+Focus on actionable insights that would provide additional improvements beyond what was already achieved in the first stage, using the reference prompts from the previous collection task.
+", agent="LangChain Hub Prompt Researcher
+", status="completed", output="Please tell a humorous and witty joke related to {topic}, ensuring it is appropriate for all audiences and captures the essence of lightheartedness while potentially including a clever twist or pun."
